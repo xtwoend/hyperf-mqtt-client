@@ -1,0 +1,34 @@
+{
+    "name": "xtwoend/hyperf-mqtt-client",
+    "description": "MQTT Client for hyperf framework",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Xtwoend\\HyperfMqttClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdul Hafidz A",
+            "email": "aditans88@gmail.com"
+        }
+    ],
+    "require": {
+        "php-mqtt/client": "^1.4",
+        "hyperf/pool": "^2.0|^3.0",
+        "hyperf/contract": "^2.0|^3.0",
+        "hyperf/utils": "^2.0|^3.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Xtwoend\\HyperfMqttClient\\ConfigProvider"
+        },
+        "branch-alias": {
+            "dev-master": "3.0-dev"
+        }
+    }
+}
