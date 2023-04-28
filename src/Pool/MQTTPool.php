@@ -17,7 +17,7 @@ class MQTTPool extends Pool
     public function __construct(ContainerInterface $container, protected string $name)
     {
         $config = $container->get(ConfigInterface::class);
-        $key = sprintf('mqtt.%s', $this->name);
+        $key = sprintf('mqtt.servers.%s', $this->name);
         if (! $config->has($key)) {
             throw new \InvalidArgumentException(sprintf('config[%s] is not exist!', $key));
         }

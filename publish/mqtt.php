@@ -1,11 +1,14 @@
 <?php
 
-
 return [
-    'default' => [
-        'server' => env('MQTT_HOST', 'broker.emqx.io'),
-        'port' => env('MQTT_PORT', 1883),
-        'username' => env('MQTT_USERNAME', null),
-        'password' => env('MQTT_PASSWORD', null),
+    'default' => 'default',
+    'interval_save' => 60,
+    'servers' => [
+        'default' => [
+            'host' => env('MQTT_HOST', '127.0.0.1'),
+            'port' => (int) env('MQTT_PORT', 1883),
+            'username' => env('MQTT_USERNAME'),
+            'password' => env('MQTT_PASSWORD'),
+        ],
     ]
 ];

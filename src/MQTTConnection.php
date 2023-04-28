@@ -41,7 +41,7 @@ class MQTTConnection extends BaseConnection implements ConnectionInterface
      */
     public function reconnect(): bool
     {
-        $server = $this->config['server'];
+        $server = $this->config['host'];
         $port = $this->config['port'];
         $username = $this->config['username'];
         $password = $this->config['password'];
@@ -82,7 +82,7 @@ class MQTTConnection extends BaseConnection implements ConnectionInterface
         return $this->connection;
     }
     
-    public function publish(string $topic, $message): void
+    public function publish(string $topic, $message, int $QoS = 0)
     {
         if( ! $this->connection instanceof MqttClient) {
             if (! $this->reconnect()) {
@@ -91,6 +91,8 @@ class MQTTConnection extends BaseConnection implements ConnectionInterface
         }
 
         $mqtt = $this->connection;
-        $mqtt->publish($topic, $message, 0);
+        $mqtt->publish($topic, $message, $QoS);
+        
+        return $mqtt;
     }
 }
