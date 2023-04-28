@@ -39,7 +39,7 @@ class MQTT
         $hasContextConnection = Context::has($mqtt->getContextKey());
 
         if ($name === 'connection') {
-            return $mqtt->getConnection($name);
+            return $mqtt->getConnection($hasContextConnection);
         }
         
         return $mqtt->getConnection($hasContextConnection)->{$name}(...$arguments);
